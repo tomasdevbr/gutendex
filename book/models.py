@@ -7,7 +7,6 @@ from django.db.models import Avg
 class ReviewBook(models.Model):
     """
     Class to store the reviews from a specific book
-
     :cvar int book_id:
     :cvar Decimal rating:
     :cvar str review:
@@ -19,12 +18,7 @@ class ReviewBook(models.Model):
 
     objects = models.Manager()
 
-    def __str__(self) -> str:
-        """
-        Method to format the object's representation
-        :return: String formatted for the object
-        :rtype: str
-        """
+    def __str__(self):
         return f'Review {self.pk} from book {self.book_id} with rating {self.rating}'
 
     @classmethod

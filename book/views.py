@@ -1,6 +1,7 @@
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework.response import Response
+from rest_framework.status import HTTP_200_OK
 from rest_framework.views import APIView
 
 from book.serializers import BookListSerializer, ReviewSerializer, BookDetailSerializer
@@ -49,4 +50,4 @@ class BookDetailApiView(APIView):
     def get(self, request, book_id):
         data = request_to_gutendex_by_id(book_id)
         serializer = BookDetailSerializer(data)
-        return Response(serializer.data)
+        return Response(serializer.data, status=HTTP_200_OK)
